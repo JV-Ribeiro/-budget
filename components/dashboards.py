@@ -218,8 +218,8 @@ def graph2_show(data_receita, data_despesa, receita, despesa, start_date, end_da
     df_ds['Output'] = 'Despesas'
     df_final = pd.concat(dfs)
 
-    # mask = (df_final["Data"] > start_date) & (df_final["Data"] <= end_date) 
-    # df_final = df_final.loc[mask]
+    mask = (df_final["Data"] > start_date) & (df_final["Data"] <= end_date) 
+    df_final = df_final.loc[mask]
 
     df_final = df_final[df_final['Categoria'].isin(receita) | df_final['Categoria'].isin(despesa)]
 
